@@ -1,0 +1,15 @@
+
+
+<!-- Static Routing -->
+<div>
+  <a [routerLink]="['/student']">Student</a> -- <a [routerLink]="['/studentdetails']">StudentDetails</a> -- <a [routerLink]="['/parentdetails']">ParentDetails</a>
+</div>
+
+
+<!-- Dynamic Routing -->
+
+<button value="student" (click)="loadStudent($event)">Student</button> | 
+<button value="studentdetails" (click)="loadStudent($event)">StudentDetails</button> 
+
+
+<router-outlet></router-outlet>
