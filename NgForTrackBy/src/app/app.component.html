@@ -1,0 +1,22 @@
+<div>
+  <h1>{{title}}</h1>
+</div>
+<br/>
+<button (click)="addMoreStudent()">Get More Students</button>
+<br/>
+
+
+<div>
+  <table border="2">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+    <tr *ngFor="let student of students; trackBy:trackByStudentId">
+      <td>{{student.id}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.age}}</td>
+    </tr>
+  </table>
+</div>

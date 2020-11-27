@@ -1,0 +1,43 @@
+<h1>String Interpolation</h1>
+<h2>{{title}}</h2>
+<br />
+<h1>Property Binding</h1>
+<h2 [innerHTML]="title"></h2>
+<img [src]="'https://angular.io/assets/images/logos/angular/angular.svg'" [height]="200" [width]="50" />
+
+<br />
+<h1>Attribute Binding</h1>
+<table [border]="attributeBorderValue" [ngStyle]="{'background-color':backgroudColor}">
+  <tr>
+    <td [colSpan]="attributeColspanValue" align="center">Student Detail</td>
+  </tr>
+  <tr>
+    <td>ID</td>
+    <td>Name</td>
+    <td>Class</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Amsidh</td>
+    <td>5th</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Raju</td>
+    <td>7th</td>
+  </tr>
+</table>
+
+<br />
+<h1>Event Binding</h1>
+<button (click)="clickedMe($event)" value="Amsidh">ClickMe</button>
+<br />
+<h1>Two Way Binding without ngModel</h1>
+<input [value]="myInputValue" (input)="changeInputValue($event)" />
+{{myInputValue}}
+<br>
+<h1>Two way binding with ngModel</h1>
+<input type="text" [(ngModel)]="studentName">
+{{studentName}}
+<br/>
+<hr>

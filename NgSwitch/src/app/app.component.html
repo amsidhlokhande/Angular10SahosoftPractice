@@ -1,0 +1,23 @@
+<div>
+  <h1>{{title}}</h1>
+</div>
+<hr>
+
+<div>
+  <select (change)="valueChange($event)"> 
+    <option value="">--select--</option>
+    <option value="one">One</option>
+    <option value="two">Two</option>
+    <option value="three">Three</option>
+    <option value="four">Four</option>
+    <option value="another">Other</option>
+  </select>
+</div>
+
+<div [ngSwitch]="changedValue">
+     <h1 *ngSwitchCase="'one'">Your selected value is one</h1>
+     <h1 *ngSwitchCase="'two'">Your selected value is Two</h1>
+     <h1 *ngSwitchCase="'three'">Your selected value is Three</h1>
+     <h1 *ngSwitchCase="'four'">Your selected value is Four</h1>
+     <h1 *ngSwitchDefault>You have selected default value</h1>
+</div>

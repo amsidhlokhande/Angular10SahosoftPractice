@@ -1,0 +1,6 @@
+<h1>{{title}}</h1>
+
+<div [ngClass]="'one two'">ngClass with string</div>
+<div [ngClass]="['three', 'four']">ngClass with array</div>
+<div [ngClass]="{'three':true, 'four':false, 'one':false, 'two':true}">ngClass with Object</div>
+<div [ngClass]="getCssClass('mode')">ngClass with component Method</div>

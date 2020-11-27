@@ -1,0 +1,9 @@
+<div><h1>{{title}}</h1></div>
+<ul *ngFor="let country of countries">
+ <li> {{country.name}}</li>
+  <ul>
+    <li *ngFor="let person of country.people">
+      {{person.name}}
+    </li>
+  </ul>
+</ul>

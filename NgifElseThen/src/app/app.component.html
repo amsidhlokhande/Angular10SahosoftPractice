@@ -1,0 +1,18 @@
+<input type="radio" name="redioBt" (click)="checkValue(true)">True
+<input type="radio" name="redioBt" (click)="checkValue(false)">False
+<hr>
+
+<div *ngIf="checkNgIf; then thenBlock else elseBlock"></div>
+
+<ng-template #thenBlock>
+  <div>This is if true then block</div>
+</ng-template>
+
+
+<ng-template #elseBlock>
+   <div>This is else Block</div>
+</ng-template>
+
+
+
+
