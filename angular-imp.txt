@@ -1,0 +1,782 @@
+
+SpringBoot main class is equal to app.modules.ts (AppModule class having @NgModule as annotation/decorator) in Angular( Which includes @NgModule[declarations[Component],imports[Module],providers[Services],bootstrap[Component]]
+SpringBoot Controller is equal to app.component.ts (AppComponent Class having @Component annotation/decorator) in Angular(Which has selector (as endpoint) , templateUrl( represent view), styleUrls)
+Spring stereotype Annotation is equal to decorator in Angular
+
+Each Module in Angular has four main files.
+  a) app.modules.ts
+  b) app.component.ts (Component has Class, Template and Metadata)
+  c) app.component.html
+  d) app.component.css
+  e) app.component.spec.ts -> This is for unit testing purpose and can be ignored.
+
+
+
+
+
+They are lot of difference  between Angular JS and Angular 2+.
+
+We are learning here Angular 2+:
+
+============ANGULAR 2+ SETUP========
+For setup we need to have following software on your system.
+
+1) Node.js which comes along with npm(NodeJS package Manager)
+Check which version of NodeJs install
+  node -v
+  And For npm version checking
+  npm -v
+2) Typescript- To install TypeScript use following command
+     npm install -g typescript
+     Check which version of typescript installed
+     tsc -v
+     (TypeScript compile)
+     We are writting our code in typescript which will be converted 
+     in js using the tsc which is understand by any web browser.
+
+3) Angular CLI
+   For installation of Angular CLI use following command
+   npm install -g @angular/cli
+   To check which version on angularJS use following command
+   ng -v 
+   or 
+   ng v
+
+
+
+================
+How to create angular 2+ project
+Use the following commands
+1) ng new projectName
+Ask for routing ? Y
+Which css ? set default
+
+Your project will be created with lot of files.
+
+==========How to run Angular 2+ Project======
+Just go inside your project folder and using the following command
+ng serve
+your project will be compiled and deployed on default port 4200
+hit page localhost:4200
+
+======================Angular 2+ Project Structure and Booting Process=========================
+1) Folder And File Structure
+    a) .git
+    
+    b) e2e -> The file exists in this folder are used for end to end testing. Testing means for integration testing 
+              and not for unit testing
+
+    c) node_modules -> This folder contains all different modules used in this project. 
+                       When you add some new module to the project that will be added in this folder. 
+		       Currently it has lot of module during project creation time as well.
+    d) src   -> This is the main folder where we work on. Application start booting from this folder
+    e) .editorconfig -> Rules can be defined in this file for development so that every developer follow those customiszed rules.
+    f) .gitignore  -> ignore file list during the git push
+    g) angular.json -> This is very important file.Our application all configuration details are in this file
+    h) browserlist
+    i) karma.conf.js --Karma is used for testing purpose
+    j) package.json  -- Project specific dependencies/devDependencies and build phases are defined in this file
+    k) package-lock.json -- Shows all available/install packages in your system.
+    l) README.md
+    m) tsconfig.app.json
+    n) tsconfig.json --Testing purpose
+    o) tsconfig.spec.json
+    p) tslint.json --Coding purpose rules are defined in this file.
+
+
+
+    Spring stereotype Annotation is equal to decorator in Angular
+
+    Following are the some known decorators 
+    @NgModule -- Class Type Class level( SpringBoot main class in Spring)
+    @Component -- Class Type Component Level( Controller in Spring)
+    @Injectable
+    @Input
+    @Output
+    @HostListener
+    @Inject
+
+
+
+
+To create new component use following command
+ng g c componentName
+here g for generate
+     c for component
+
+
+How to create angular routing project using command line
+ng new projectname --routing
+
+How to add routing module in existing application where there were no routing module selected during creation
+ng generate module app-routing --flat --module=app
+
+How to create class in angular 
+ng genereate class ClassName
+
+
+0145 2422111
+
+
+How to clean npm project
+Inside project directory->
+npm cache clean
+
+==============NG FORM ============
+There are two types of angular forms 
+1) Template Driven Form - Simple and used for small form requirement like login/registration etc
+2) Reactive/Model Driven Form - Complex and need practise to create complex logic form.
+
+
+form-control ng-untouched ng-pristine ng-valid 
+form-control ng-valid ng-dirty ng-touched 
+form-control ng-dirty ng-touched ng-invalid 
+
+To install bootstrap.min.css 
+npm install bootstrap
+
+--For uninstalling the package--
+npm uninstall bootstrap
+
+And add the following in the angular.json inside styles key
+ "styles": [
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css" //  or "src/assets/css/bootstrap.min.css"
+	   ]
+
+=============================================================
+
+How to install express server in angular
+
+First create one folder (express-server) and go to that folder in command prompt
+on command prompt enter following command and hit enter
+
+npm init
+
+And now install dependencies using following command
+npm install --save express body-parser cors
+
+Following the meaning of above command:
+express -- is our server
+body-parser--  is middleware to handle form data 
+cors- is a package to make request across different ports
+
+create file server.js inside express-server folder and add the dependencies installed above
+server.js
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
+// Assign a port to the express server and add a listener to listen request on that port
+const PORT = 3000;
+//Create instance of express server
+const app = express();
+//add body-parser and cors in above server instance
+app.use(bodyParser.json());
+app.use(cors());
+
+//Add listener who listen all request on the server port
+app.listen(PORT, function () {
+  console.log("Listener has been initialized!!! " + PORT);
+});
+
+
+app.get('/', function (request, response) {
+  response.send('Hello From Express Server');
+});
+
+//add post request
+app.post('/express-server/enroll', function (request, response) {
+  console.log(request.body)
+  response.status(200).send({'message': 'User enrolled successfully'});
+})
+
+And finally start the server using following command
+
+node server
+
+
+============================================================
+
+
+For Following error
+npm ERR! Unexpected end of JSON input while parsing near '...:"^0.2.0","unist-buil'
+Please run the following command-
+npm cache clean --force
+npm install -g @angular/cli@latest
+==============================================
+Reactive Form Angular
+
+
+
+curl -X POST --data "{username: 'Amsidh', email: 'amsidhlokhande@gmail.com', subscribe: true, password: 'Shirashel@123',confirmPassword: 'Shirashel@123', address: { city: 'Pune', state: 'Maharashtra', pincode: '412105' }, alternateEmailIds: [ 'amsidhlokhande1@gmail.com' ]}" http://localhost:3000/express-server/enroll
+
+
+=================================================================================================================================================================
+=================================================================================================================================================================
+================================================================================ ANGULAR-10 =====================================================================
+Below are the new features added in angular10
+	1) New Date Range Picker
+	2) Warning about the CommonJS imports
+	3) Optional Stricter settings
+	4) Keeping up to date with Ecosystem
+	5) New Default Browser Configuration
+	6) Angular Team Fixit( New team for fixing bugs)
+	7) Deprecation and Removals
+
+In order to use Date range picker functionality in your code following are the command need to execute
+	1) ng add @angular/material
+	2) npm install moment --save
+	3) npm i @angular/material-moment-adapter
+	
+
+	
+@NgModule has declarations section where we can declare component, directives and pipes.
+@NgModule({
+  declarations:[
+     component/pipes/directives
+  ],
+  imports:[
+     module
+  ],
+  providers:[
+    
+  ]
+  bootstrap:[]
+})
+
+
+What is decorator in angular?
+Decorator are just function in TypeScript. The name of the decorator start with @ symbol following by brackets and arguments.
+Decorators are simply functions that return functions. These functions supply metadata to Angular about a particular class, value, or method ...
+Decorators are invoked at runtime.
+Decorators allow you to execute functions. For example @Component executes the Component function imported from Angular 10.
+Examples of decorators:
+Class Decorator:
+@NgModule() to define modules...
+@NgComponent() to define component...
+@Injectable() to define services...
+Property Decorator:
+@Input and @Output to define properties... that send to receive data from the dom.
+Method Decorator:
+@HostListener Declared inside method of class
+Examples-
+@HostListener('click',['$event'])
+showOnClick(){
+ console.log('Hello');
+}
+When you click anywhere in browser it prints hello on console.
+
+Parameter Decorator:
+@Inject Inside constructor parameter.
+There are many built-in decorators available in Angular and many properties on each decorator.
+
+
+Directive:
+Directives are element which change the appearance and behavior of the DOM element. 
+There are three types of directive available in angular.
+1) Component Directive- Component is also a type of directive with template, style and logic part which is the most famous type of directive. 
+2) Structural Directive - Are responsible for the HTML layout. They shape or reshape the html view by simply adding or removing the element in the DOM.
+     There are basically three structural directive available in angular.
+	   i) *ngIf  
+	        a) <div *ngIf="checkngIf"> This is ng if example</div>
+	        b) <div *ngIf="checkNgIf; else elseBlock"> This is ng if block</div>
+				<ng-template #elseBlock>
+				   <div>This is else Block</div>
+				</ng-template> 
+			c) <div *ngIf="checkNgIf; then thenBlock else elseBlock"></div>
+				<ng-template #thenBlock>
+				   <div>This is else Block</div>
+				</ng-template>
+				<ng-template #elseBlock>
+				   <div>This is else Block</div>
+				</ng-template>	
+				
+	   ii) *ngFor
+	       The Syntax is *ngFor="let <var> of <collection>"
+		   Local variables used in ngFor are Index, First, Last, Even.
+		   Example
+		   <div>
+			  <ul>
+				<li *ngFor="let student of students; let i=index; let f=first; let l=last; let o=odd; let e=even">
+				  <h3>
+					{{i}} - {{student.name}} - {{f}} - {{l}} - {{o}} - {{e}}
+				  </h3>
+				</li>
+			  </ul>
+			</div>
+          Ts code:
+           	students:any[]=[
+							{
+							  name:'Amsidh Lokhande'
+							},
+							{
+							  name:'Raju Lokhande'
+							},
+							{
+							  name:'Sanjay Lokhande'
+							},
+							{
+							  name:'Shirashel Lokhande'
+							}
+						  ];	  
+						  
+		   
+	   iii) *ngSwitch    *ngSwitchCase *ngSwitchDefault
+	        Example:
+           i) <div>
+			  <select (change)="valueChange($event)"> 
+				<option value="">--select--</option>
+				<option value="one">One</option>
+				<option value="two">Two</option>
+				<option value="three">Three</option>
+				<option value="four">Four</option>
+				<option value="another">Other</option>
+			  </select>
+			</div>
+
+			<div [ngSwitch]="changedValue">
+				 <h1 *ngSwitchCase="'one'">Your selected value is one</h1>
+				 <h1 *ngSwitchCase="'two'">Your selected value is Two</h1>
+				 <h1 *ngSwitchCase="'three'">Your selected value is Three</h1>
+				 <h1 *ngSwitchCase="'four'">Your selected value is Four</h1>
+				 <h1 *ngSwitchDefault>You have selected default value</h1>
+			</div>			
+			Inside ts file:
+
+			changedValue:string = '';
+
+			  valueChange(event:any){
+				this.changedValue = event.target.value;
+			  }
+			  
+		ii)	 ngFor TrackedBy Example
+             TrackBy used to improve performance of loading list of updated or newly added elements only instead of recreating whole list of DOM.
+			 
+			<div>
+			  <table border="2">
+				<tr>
+				  <th>Id</th>
+				  <th>Name</th>
+				  <th>Age</th>
+				</tr>
+				<tr *ngFor="let student of students; trackBy:trackByStudentId">
+				  <td>{{student.id}}</td>
+				  <td>{{student.name}}</td>
+				  <td>{{student.age}}</td>
+				</tr>
+			  </table>
+			</div>
+
+            trackByStudentId(index:number, student:any){
+             return student.id;
+            }			 
+			  
+		iii) Grouping in NgFor
+		    countries:any[]=[
+							{
+							  name:"India",
+							  people:[{
+								name:"Amsidh",
+							  },
+							  {
+								name:"Shirashel",
+							  },
+							  {
+								name:"Sanjay",
+							  }]
+							},
+							{
+							  name:"UK",
+							  people:[{
+								name:"Jhon",
+							  },
+							  {
+								name:"Emily",
+							  },
+							  {
+								name:"George",
+							  },
+							  {
+								name:"Mikhel",
+							  }]
+							}
+						  ];
+		
+		
+		     <ul *ngFor="let country of countries">
+				 <li> {{country.name}}</li>
+				  <ul>
+					<li *ngFor="let person of country.people">
+					  {{person.name}}
+					</li>
+				  </ul>
+			</ul>
+             
+             
+
+
+
+
+
+
+
+
+
+			 
+3) Attribute: Attribute directive is a way to modify the appearance of the DOM element. There are basically two attribute directive in angular.
+    i) ngStyle- <p [ngStyle]="{'color':'red', 'font-weight':'bold'}"> This is ng style example </p>
+	ii) ngClass-
+
+
+
+
+
+ngStyle Example
+ ngStyle gives a flexibility of static and dynamic changes the style of the DOM.
+ 1) <div [ngStyle]="{'backgroud-color':green}"></div>
+ 2) <div [ngStyle]="{'backgroud-color': person.country==='UK'? 'green':'red'}"></div>
+ngClass Example
+ngClass directive allows us to set CSS class dynamically  for the DOM element.
+   Inside component.css file 
+   .one{
+     color:red;
+   }
+   .two{
+     font-size:30px;
+   }
+   .three{
+   color: blue;
+   }
+   .four{
+      font-size:25px;
+   }
+
+  1) ngClass with String
+     <div [ngClass]="'one' 'two'">ngClass with String</div>
+  2) ngClass with array
+     <div [ngClass]="[one, two]">ngClass with Array</div> 
+  3) ngClass with Object
+     <div [ngClass]="{'one':true, 'two':false}">ngClass with Class</div> 
+  4) ngClass with component method   
+     <div [ngClass]="getCssClass(mode)">ngClass with component method</div> 
+     
+	 getCssClass(flag: string) {
+		let cssClass;
+		if (flag === 'mode') {
+		  cssClass = {
+			'one': true,
+			'two': false,
+			'three': false,
+			'four': true
+		  };
+		} else {
+		  cssClass = {
+			'one': false,
+			'two': true,
+			'three': true,
+			'four': false
+		  };
+		}
+		return cssClass;
+	  }
+ 
+Data Binding:
+1) Interpolation Binding -> Its one way component to template binding. {{VariableName}}
+2) Property Binding ->Its also one way binding 
+          <h2 [innerHtml]="'VariableName'"></h2>
+		  <img [src]="'https://angular.io/assets/images/logos/angular/angular.svg'" [height]="200" [width]="50"/>
+3) Attribute Binding -> 
+    <h1>Attribute Binding</h1>
+		<table [border]="attributeBorderValue" [ngStyle]="{'background-color':backgroudColor}">
+		  <tr>
+			<td [colSpan]="attributeColspanValue" align="center">Student Detail</td>
+		  </tr>
+		  <tr>
+			<td>ID</td>
+			<td>Name</td>
+			<td>Class</td>
+		  </tr>
+		  <tr>
+			<td>1</td>
+			<td>Amsidh</td>
+			<td>5th</td>
+		  </tr>
+		  <tr>
+			<td>2</td>
+			<td>Raju</td>
+			<td>7th</td>
+		  </tr>
+		</table>
+
+		 //Attribute Binding Variables
+		  attributeBorderValue: number = 1;
+		  attributeColspanValue: number = 3;
+
+
+		
+4) Event Binding
+   <button (click)="clickedMe($event)" value="Amsidh">ClickMe</button> 
+   clickedMe(event:any){
+    alert('Hello '+event.target.value +' you clicked me!');
+  }
+5) Two way Binding:
+      1) Without ngModel
+	     <h1>Two Way Binding without ngModel</h1>
+			<input [value]="myInputValue" (input)="changeInputValue($event)" />
+			{{myInputValue}}
+
+          myInputValue: string = '';
+       2) With ngModel
+          In order to use ngModel we need to import FormModule in app.module.ts	
+            import { FormsModule } from '@angular/forms';
+                  imports: [
+								BrowserModule,
+								AppRoutingModule,
+								FormsModule
+							],
+
+            <h1>Two way binding with ngModel</h1>
+			<input type="text" [(ngModel)]="studentName">
+			{{studentName}}
+						
+			//Second way with mgModel
+			   studentName:string='';			
+
+			   
+Pipes in Angular:
+    <h1 align="center">Pipes Example</h1>
+
+		<table border="2">
+		  <tr>
+			<th>Sr. No</th>
+			<th>Employee ID</th>
+			<th>Name</th>
+			<th>Salary</th>
+			<th>Date Of Birth (default)</th>
+			<th>Date Of Birth | date:'short'</th>
+			<th>Date Of Birth | date:'medium'</th>
+			<th>Date Of Birth | date:'yyyy-mm-dd'</th>
+			<th>Date Of Joining | date:'long'</th>
+		  </tr>
+		  <tr *ngFor="let employee of employees; let srNo=index">
+			<td>{{srNo+1}}</td>
+			<td>{{employee.employeeId}}</td>
+			<td>{{employee.employeeName | uppercase}}</td> <!--UpperCase pipe applied here-->
+			<td>{{employee.salary | currency:'USD':true:'1.3-3'}}</td>  <!--Currency pipe applied here-->
+			<td>{{employee.dateOfBirth}}</td> <!-- Default -->
+			<td>{{employee.dateOfBirth | date:'short'}}</td> <!--Date pipe applied here-->
+			<td>{{employee.dateOfBirth | date:'medium'}}</td> <!--Date pipe applied here-->
+			<td>{{employee.dateOfBirth | date:'yyyy-MM-dd'}}</td> <!--Date pipe with specific format applied here-->
+			<td>{{employee.dateOfJoining | date:'long'}}</td> <!--Date pipe applied here-->
+		  </tr>
+		</table>
+		
+		employees:any[]=[
+    {
+      employeeId:8410301,
+      employeeName:'Amsidh',
+      dateOfBirth: new Date(1983,5,5),
+      dateOfJoining:'07-24-2017',
+      salary:3543543
+    },
+    {
+      employeeId:8410302,
+      employeeName:'Madan',
+      dateOfBirth: new Date(1985,12,20),
+      dateOfJoining:'02-21-2015',
+      salary:77546
+    },
+    {
+      employeeId:8410303,
+      employeeName:'Anuj',
+      dateOfBirth: new Date(1981,9,25),
+      dateOfJoining:'01-08-2019',
+      salary:875675
+    },
+    {
+      employeeId:8410304,
+      employeeName:'Suresh',
+      dateOfBirth: new Date(1982,11,15),
+      dateOfJoining:'02-24-2020',
+      salary:5687654
+    },
+    {
+      employeeId:8410305,
+      employeeName:'Anita',
+      dateOfBirth: new Date(1987,9,15),
+      dateOfJoining:'11-20-2019',
+      salary:2454657
+    }
+  ]
+  
+Chaining Pipes:
+  data | pipe1 | pipe2 | pipe3| .....pipe n
+  data | pipe1:parameter1:parameter2:.... | pipe2:parameter1:.... | pipe3:parameter2:...
+  Example: <td>{{employee.dateOfJoining | date:'fullDate'| uppercase}}</td>
+  
+Other Pipe example:
+
+		<h1>Lower Case</h1>
+		<h3>{{name| lowercase}}</h3>
+		<h1>Upper Case</h1>
+		<h3>{{name | uppercase}}</h3>
+		<h1>Title Case</h1>
+		<h3>{{name | titlecase}}</h3>
+		<h1>Slice with starting index 2</h1>
+		<h3>{{name | slice:2}}</h3>
+		<h1>Slice with start index 2 and end index 5</h1>
+		<h3>{{name | slice:2:5}}</h3>
+		<h1>{{fruits}}</h1>
+		<h1>Slice on array with start index 2</h1>
+		<h3>{{fruits | slice:2}}</h3>
+		<h1>Slice on array with start index 2 and end index 4</h1>
+		<h3>{{fruits | slice:2:4}}</h3>
+
+
+		<h1> Json Pipe Example</h1>
+		<h1> Json without json pipe</h1>
+		<h3>{{peoples}}</h3>
+		<h1>Json with json Pipe</h1>
+		<h3>{{peoples|json}}</h3>
+		<h1>Json with json pipe and slice start 2 and end 4 index</h1>
+		<h3>{{peoples|slice:2:4|json}}</h3>
+		  name: string = 'amsidh lokhande';
+		  fruits: string[] = ['Apple', 'Mango', 'Banana', 'Orange'];
+
+		  //Json Pipe 
+		  public peoples: any[] = [
+			{ id: 1, name: 'Amsidh Lokhande', age: 37 },
+			{ id: 2, name: 'Adithi Lokhande', age: 10 },
+			{ id: 3, name: 'Adity Lokhande', age: 7 },
+			{ id: 4, name: 'Anjali Lokhande', age: 35 },
+			{ id: 5, name: 'Raju Lokhande', age: 34 },
+			{ id: 6, name: 'Usha Lokhande', age: 33 }
+		  ];  
+		  
+Custom Pipe in Angular:
+
+  Command to create pipe
+    ng g pipe pipeName --flat  
+	app.component.html
+    <h1>Custom Pipe Example</h1>
+	<h3>If Person gender is Male then apply Mr and Female then Miss before his name</h3>
+	<table border="2">
+	  <tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Gender</th>
+	  </tr>
+	  <tr *ngFor="let people of peoples">
+		<td>{{people.id}}</td>
+		<td>{{people.name| myPipe:people.gender}}</td>
+		<td>{{people.gender}}</td>
+	  </tr>
+	</table>
+	app.component.ts
+	public peoples: any[] = [
+		{ id: 1, name: 'Amsidh Lokhande', gender: 'Male', age: 37 },
+		{ id: 2, name: 'Adithi Lokhande', gender: 'Female', age: 10 },
+		{ id: 3, name: 'Adity Lokhande', gender: 'Male', age: 7 },
+		{ id: 4, name: 'Anjali Lokhande', gender: 'Female', age: 35 },
+		{ id: 5, name: 'Raju Lokhande', gender: 'Male', age: 34 },
+		{ id: 6, name: 'Usha Lokhande', gender: 'Female', age: 33 }
+		];
+	my-pipe.pipe.ts
+	import { Pipe, PipeTransform } from '@angular/core';
+
+	@Pipe({
+	  name: 'myPipe'
+	})
+	export class MyPipePipe implements PipeTransform {
+
+	  transform(value: string, ...args: string[]): string {
+		if (args[0].toLocaleLowerCase() == 'male')
+		  return 'Mr. ' + value;
+		else
+		  return 'Miss. ' + value;
+	  }
+
+	}
+	
+Routing In Angular
+    Angular Router allows us to:
+	 1) redirect a URL to another URL
+	 2) resolve data before a page is displayed
+	 3) run scripts when a page is activated or deactivated
+	 4) lazy load parts of our application
+
+
+Routing Configuration Examples:	 
+  Redirecting in Routes
+    export const routes:Routes = [
+	  {path:'', redirectTo:'component-one', pathMatch:'full'},
+	  {path:'component-one', component:ComponentOne},
+	  {path:'component-two', component:ComponentTwp},
+	];
+	
+   Wild-card in Routes:
+   const routes: Routes = [
+		  {
+			path: '',
+			redirectTo: 'student',
+			pathMatch: 'full'
+		  },
+		  {
+			path: 'student',
+			component: StudentComponent
+		  },
+		  {
+			path: 'studentdetails',
+			component: StudentdetailsComponent
+		  },
+		  {
+			path: '**',
+			component: PagenotfoundComponent
+		  }
+		];   
+    
+	 
+	 
+	 
+Router Outlet:
+   The <router-outlet> tells the router where to display routed view.
+   
+      <nav [ngClass]="menu">
+	     <a routerLink="/home" routerLinkActive="active-link">Home</a>|
+		 <a routerLink="/add-book" routerLinkActive="active-link">Add Book</a>|
+		 <a routerLink="/manage-book" routerLinkActive="active-link">Manage Book</a>|
+	  </nav>	 
+     <router-outlet></router-outlet>	 
+
+	  OR
+     <div>
+	    <a [routerLink]="['/student']">Student</a>
+	 </div>	  
+     <router-outlet></router-outlet>	 
+
+	 At ts file
+	 import {Router} from "@angular/router";
+	 constructor(private router:Router){
+	  this.router.navigate(['/student',43543243]);
+	 }
+	 
+	 How to generate router module if not selected during project creation
+	 ng generate module app-routing --flat --module=app
+	 
+	 
+
+	 
+	  
+	 
+
+
+  
+  
+		
+ 
+
+
+
+
+
