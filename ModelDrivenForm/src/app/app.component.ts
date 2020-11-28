@@ -33,7 +33,12 @@ export class AppComponent {
   }
 
   loadSampleForm() {
-    this.regForm.reset({
+    /* this.regForm.setValue({
+      firstName: 'Amsidh',
+      lastName: 'Lokhande',
+      emailId: 'amsidhlokhande@gmail.com'
+    }); */  //This wont work as password field is not set. To use setValue we need to set all fields of form.
+    this.regForm.patchValue({
       firstName: 'Amsidh',
       lastName: 'Lokhande',
       emailId: 'amsidhlokhande@gmail.com'
