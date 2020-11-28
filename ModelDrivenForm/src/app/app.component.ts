@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Model Driven Form';
   regForm: FormGroup;
 
@@ -20,6 +20,33 @@ export class AppComponent {
       }
     );
   }
+
+  ngOnInit(): void {
+    // valueChanges on particular field of the form
+    /* this.regForm.get('firstName')?.valueChanges.subscribe(fName=>{
+       console.log("Value Change firstName "+ fName);
+    }); */
+
+    //valueChanges on form
+    /* this.regForm.valueChanges.subscribe((myForm:any)=>{
+      console.log("Value Change firstName "+ myForm.firstName);
+      console.log("Value Change lastName "+ myForm.lastName);
+      console.log("Value Change emailId "+ myForm.emailId);
+      console.log("Value Change Password "+ myForm.password);
+   }); */
+
+    //stateChanges on particular field of the form
+    /* this.regForm.get('emailId')?.statusChanges.subscribe(isValid => {
+      console.log("Status Change firstName is valid " + isValid);
+    }); */
+
+     //statusChanges on form
+    this.regForm.statusChanges.subscribe(isFormValid=>{
+      console.log("Status Change is Form Valid  "+ isFormValid);
+   });
+
+  }
+
 
   registerUser() {
     console.log(this.regForm.get('firstName')?.value);
