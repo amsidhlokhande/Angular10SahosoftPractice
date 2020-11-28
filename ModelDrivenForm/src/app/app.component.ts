@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +13,10 @@ export class AppComponent {
   constructor(private formBuilder: FormBuilder) {
     this.regForm = formBuilder.group(
       {
-        firstName: new FormControl(),
-        lastName: new FormControl(),
-        emailId: new FormControl(),
-        password: new FormControl()
+        firstName: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(10)]),
+        lastName: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(10)]),
+        emailId: new FormControl('', [Validators.required, Validators.email]),
+        password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(12), Validators.pattern('[a-zA-Z ]*')])
       }
     );
   }

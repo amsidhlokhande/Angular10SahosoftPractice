@@ -2,11 +2,12 @@
 
 <div class="container">
   <div class="row">
-    <div class="form_bg">
+    <div class="form-bg">
       <form [formGroup]="regForm" (ngSubmit)="registerUser(regForm)">
         
         <div class="form-group">
           <input type="text" class="form-control" formControlName="firstName" placeholder="First Name">
+          <span class="text-danger" *ngIf="regForm.controls['firstName'].invalid && regForm.controls['firstName'].touched">Enter valid first name</span>
         </div>
 
         <div class="form-group">
@@ -22,7 +23,7 @@
         </div>
 
         <div>
-          <input type="submit" class="btn btn-primary" value="Register">
+          <input type="submit" class="btn btn-primary" [disabled]="!regForm.valid" value="Register">
         </div>
 
       </form>
