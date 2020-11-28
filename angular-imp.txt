@@ -764,7 +764,59 @@ Router Outlet:
 	 How to generate router module if not selected during project creation
 	 ng generate module app-routing --flat --module=app
 	 
-	 
+Forms In Angular-
+	There two types of Forms in Angular Template Driven Form and Model Driven Form(Reactive Form)
+	You neeed to import FormsModule in app.module.ts
+
+    Template Driven Form Example:	 
+	        Html Content:
+			   <div class="container">
+				  <br />
+				  <div class="row">
+					<div class="form-bg">
+					  <form #regForm="ngForm" (ngSubmit)="registerForm(regForm)">
+						<h1 class="text-center">Registration Form</h1>
+						<br />
+
+						<div class="form-group">
+						  <input type="text" name="firstName" id="firstName" ngModel class="form-control" placeholder="First Name"
+							required />
+						</div>
+
+						<div class="form-group">
+						  <input type="text" name="lastName" id="lastName" ngModel class="form-control" placeholder="Last Name"
+							required />
+						</div>
+
+						<div class="form-group">
+						  <input type="text" name="emailId" id="emailId" ngModel class="form-control" placeholder="Email ID" required
+							email #email="ngModel" />
+						  <span class="help-bpx" *ngIf="!email.valid && email.touched">Please enter valid emailId</span>
+						</div>
+
+						<div class="align-center">
+						  <button type="submit" id="register" class="btn btn-primary" [disabled]="!regForm.valid">Register</button>
+						</div>
+					  </form>
+					</div>
+				  </div>
+				</div>
+			
+			TS Content:
+                 registerForm(regForm: any) {
+					debugger;
+					var emailId = regForm.controls.emailId.value;
+					var firstName = regForm.controls.firstName.value;
+					var lastName= regForm.controls.lastName.value;
+					console.log(regForm);
+				  }			
+			css Content:
+			    input.ng-invalid.ng-touched{
+					border-color: red;
+				}
+
+    Model Driven Form (Reactive Form):
+     	
 
 	 
 	  
