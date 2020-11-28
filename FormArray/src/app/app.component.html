@@ -1,1 +1,13 @@
-Hello 
+<h1>{{title}}</h1>
+
+<form [formGroup]="contactNumbersForm" (ngSubmit)="showContactNumbers()">
+  <div formArrayName="contactNumbers">
+    <div *ngFor="let contact of contactNumbersForm.controls.contactNumbers.controls; let i=index">
+      <input [formControlName]="i" placeholder="Contact No">
+    </div>
+  </div><br/>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<button class="btn btn-primary" (click)="addNumber()">Add Number</button> ---- 
+<button class="btn btn-primary" (click)="resetForm()">Reset Contacts</button>

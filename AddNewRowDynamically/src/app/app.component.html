@@ -1,0 +1,18 @@
+<div class="container">
+  <form novalidate [formGroup]="studentForm">
+    <div formGroupName="students">
+      <div>Form Details</div>
+      <div *ngIf="studentForm.controls.students != null">
+        <div *ngFor="let student of studentForm.controls.students.value; let i=index" [formGroupName]="i">
+          <input placeholder="Name" formControlName="name"> <input placeholder="RollNumber"
+            formControlName="rollNumber"> <input placeholder="Standard" formControlName="standard"> <input
+            placeholder="Mobile Number" formControlName="mobileNumber">
+            &nbsp;<button class="btn btn-danger" (click)="removeStudent(i)">X</button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button class="btn btn-primary" (click)="addNewStudent()">Add New Student</button>
+    </div>
+  </form>
+</div>

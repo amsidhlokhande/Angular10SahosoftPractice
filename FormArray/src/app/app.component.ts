@@ -6,27 +6,34 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  title = 'FormArray';
+export class AppComponent implements OnInit {
+  title = 'Nested Form Array';
   
+  contactNumbersForm: any;
 
-  constructor(private formBuilder:FormBuilder){
-   
+  constructor() {
 
   }
   ngOnInit(): void {
-   const myFormArray= new FormArray([
-      new FormControl('A',[Validators.minLength(2), Validators.maxLength(12)]),
-      new FormControl('Lokhande',[Validators.minLength(2), Validators.maxLength(12)]),
-    ]);
-   //myFormArray.setValue(['Amisdh','Lokhande']);
-   myFormArray.patchValue(['Amisdh']);
-   myFormArray.reset(['Babasha','Lokhande']);
-    console.log(myFormArray.value);
-    console.log(myFormArray.status);
-    
+    this.contactNumbersForm = new FormGroup({
+      contactNumbers: new FormArray([
+        new FormControl('8108551845'),
+        new FormControl('8108551846')
+      ])
+    });
+  }
 
+  showContactNumbers() {
+    console.log(this.contactNumbersForm.get('contactNumbers').value);
+    console.log(this.contactNumbersForm.value);
+  }
+
+  addNumber(){
+    this.contactNumbersForm.get('contactNumbers').push(new FormControl());
   }
   
-
+  resetForm(){
+    debugger;
+    this.contactNumbersForm.get('contactNumbers').patchValue(['8108551845','8108551846']);
+  }
 }
