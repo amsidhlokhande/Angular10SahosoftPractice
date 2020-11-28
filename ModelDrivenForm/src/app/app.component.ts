@@ -21,16 +21,23 @@ export class AppComponent {
     );
   }
 
-  registerUser(userForm: any) {
-    var FirstName = userForm.controls.firstName.value;
-    var LastName = userForm.controls.lastName.value;
-    var EmailID = userForm.controls.emailId.value;
-    var Password = userForm.controls.password.value;
-    debugger;
-    console.log(FirstName);
-    console.log(userForm);
+  registerUser() {
+    console.log(this.regForm.get('firstName')?.value);
+    console.log(this.regForm.value);
   }
 
+  resetForm() {
+    this.regForm.reset({
+      emailId: 'amsidhlokhande@gmail.com',
+    });
+  }
 
+  loadSampleForm() {
+    this.regForm.reset({
+      firstName: 'Amsidh',
+      lastName: 'Lokhande',
+      emailId: 'amsidhlokhande@gmail.com'
+    });
+  }
 
 }
