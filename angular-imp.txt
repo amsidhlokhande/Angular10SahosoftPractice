@@ -816,8 +816,65 @@ Forms In Angular-
 				}
 
     Model Driven Form (Reactive Form):
-     	
+        Need to import ReactiveFormsModule in app.module.ts
+        Html content:
+            <h1>{{title}}</h1>
 
+			<div class="container">
+			  <div class="row">
+				<div class="form_bg">
+				  <form [formGroup]="regForm" (ngSubmit)="registerUser(regForm)">
+					
+					<div class="form-group">
+					  <input type="text" class="form-control" formControlName="firstName" placeholder="First Name">
+					</div>
+
+					<div class="form-group">
+					  <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name">
+					</div>
+
+					<div class="form-group">
+					  <input type="text" class="form-control" formControlName="emailId" placeholder="Email ID">
+					</div>
+
+					<div class="form-group">
+					  <input type="password" class="form-control" formControlName="password" placeholder="Password">
+					</div>
+
+					<div>
+					  <input type="submit" class="btn btn-primary" value="Register">
+					</div>
+
+				  </form>
+				</div>
+			  </div>
+			</div> 		
+
+		Ts content:
+		    regForm: FormGroup;
+
+			  constructor(private formBuilder: FormBuilder) {
+				this.regForm = formBuilder.group(
+				  {
+					firstName: new FormControl(),
+					lastName: new FormControl(),
+					emailId: new FormControl(),
+					password: new FormControl()
+				  }
+				);
+			  }
+
+			  registerUser(userForm: any) {
+				var FirstName = userForm.controls.firstName.value;
+				var LastName = userForm.controls.lastName.value;
+				var EmailID = userForm.controls.emailId.value;
+				var Password = userForm.controls.password.value;
+				debugger;
+				console.log(FirstName);
+				console.log(userForm);
+			  }
+
+			
 	 
 	  
 	 
