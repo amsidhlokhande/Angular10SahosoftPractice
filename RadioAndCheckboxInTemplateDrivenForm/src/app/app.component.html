@@ -1,0 +1,54 @@
+<h1 class="text-center">{{title}}</h1>
+
+<form #userForm="ngForm" (ngSubmit)="registerUser(userForm)">
+  <table>
+    <tr>
+      <td>User Name:</td>
+      <td>
+        <input type="text" #username="ngModel" [ngModel]="user.username" required name="username">
+        <div *ngIf="username.invalid && username.touched">
+          <span class="text-danger">UserName Required</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Gender:</td>
+      <td>
+        <input type="radio" value="Male" #gender="ngModel" [ngModel]="user.gender" required name="gender">Male
+        <input type="radio" value="Female" #gender="ngModel" [ngModel]="user.gender" required name="gender">Female
+        <div *ngIf="gender.invalid">
+          <span class="text-danger">select gender</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Are you married:</td>
+      <td>
+        <input type="checkbox" #isMarried="ngModel" [ngModel]="user.isMarried" required name="isMarried">
+        <div *ngIf="isMarried.invalid && isMarried.touched">
+          <span class="text-danger">Marritial status required</span>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Terms & Condition Accepted:</td>
+      <td>
+        <input type="checkbox" #isTcAccepted="ngModel" [ngModel]="user.isTcAccepted" required name="isTcAccepted">
+        <div *ngIf="isTcAccepted.invalid && isTcAccepted.touched">
+          <span class="text-danger">Tems and Condition need to accept</span>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <button type="submit" class="btn btn-primary">Register User</button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="loadDefaultForm()">Default User</button>
+        &nbsp; <button type="button" class="btn btn-primary" (click)="resetUserForm(userForm)">Reset User</button>
+      </td>
+    </tr>
+  </table>
+</form>
