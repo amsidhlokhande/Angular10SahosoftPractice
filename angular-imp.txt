@@ -954,6 +954,18 @@ Add New Row Dynamically To the form:
 
 			}
 
+			
+			
+Angular Material:
+        In order to use angular material we have to install it in our application using following command
+         npm install --save @angular/material @angular/cdk @angular/animations
+        For more information and ready tools and component you can visit https://material.angular.io/
+
+		  Indigo/Pink        [ Preview: https://material.angular.io?theme=indigo-pink ]
+		  Deep Purple/Amber  [ Preview: https://material.angular.io?theme=deeppurple-amber ]
+		  Pink/Blue Grey     [ Preview: https://material.angular.io?theme=pink-bluegrey ]
+		  Purple/Green       [ Preview: https://material.angular.io?theme=purple-green ]
+				
 			 
 			
 	 
