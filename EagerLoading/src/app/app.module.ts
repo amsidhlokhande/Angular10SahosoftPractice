@@ -23,4 +23,8 @@ import { PersonModule } from './person/person.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(){
+    console.log("AppModule loaded");
+  }
+ }
