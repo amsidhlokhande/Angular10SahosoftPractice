@@ -10,7 +10,6 @@ import { Component, OnInit } from '@angular/core';
 export class CompanyComponent implements OnInit {
 
   constructor() { 
-    console.log('CompanyComponent loaded');
   }
 
   ngOnInit(): void {

@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { CompanyModule } from './company/company.module';
 import { ContactusComponent } from './contactus/contactus.component';
+import { CustomPreloadingStrategyService } from './custom-preloading-strategy.service';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { PersonModule } from './person/person.module';
 
 const routes: Routes = [
   {
     path: 'company',
-    loadChildren: () => CompanyModule
+    loadChildren: () => CompanyModule,
+    data: { preload: true }
   },
   {
     path: 'person',
@@ -17,11 +19,11 @@ const routes: Routes = [
   {
     path: 'contactus',
     component: ContactusComponent
-  },  
+  },
   {
     path: '',
     redirectTo: '',
-    pathMatch:'full'
+    pathMatch: 'full'
   },
 
   {
@@ -32,9 +34,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{
-    preloadingStrategy:PreloadAllModules
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: CustomPreloadingStrategyService
   })],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [CustomPreloadingStrategyService]
 })
 export class AppRoutingModule { }

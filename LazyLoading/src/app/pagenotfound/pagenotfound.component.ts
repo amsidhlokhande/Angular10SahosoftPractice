@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class PagenotfoundComponent implements OnInit {
 
   constructor() {
-    console.log('PagenotfoundComponent Component Loaded');
    }
 
   ngOnInit(): void {

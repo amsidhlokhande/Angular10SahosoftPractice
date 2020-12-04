@@ -10,7 +10,6 @@ import { Component, OnInit } from '@angular/core';
 export class PersonComponent implements OnInit {
 
   constructor() {
-    console.log('PersonComponent loaded');
   }
 
   ngOnInit(): void {

@@ -19,6 +19,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'LazyLoading';
   constructor() {
-    console.log('AppComponent is loaded')
   }
 }

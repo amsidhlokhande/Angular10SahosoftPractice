@@ -19,6 +19,6 @@ import { PersonListComponent } from './person-list/person-list.component';
 })
 export class PersonModule {
   constructor() {
-    console.log('PersonModule');
+    console.log('PersonModule loaded');
   }
 }

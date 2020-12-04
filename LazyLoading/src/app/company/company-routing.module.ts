@@ -24,6 +24,5 @@ const companyRoutes: Routes = [
 })
 export class CompanyRoutingModule {
   constructor() {
-    console.log('CompanyRoutingModule loaded');
   }
 }

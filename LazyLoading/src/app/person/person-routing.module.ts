@@ -26,7 +26,6 @@ const personRoutes: Routes = [
 })
 export class PersonRoutingModule {
   constructor() {
-    console.log('PersonRoutingModule loaded');
   }
 }
 

@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 export class ContactusComponent implements OnInit {
 
   constructor() {
-    console.log('ContactusComponent loaded');
   }
 
   ngOnInit(): void {
