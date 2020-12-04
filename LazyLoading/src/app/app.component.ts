@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
         <ul>
           <li><a routerLink="/company" routeLinkActive="active">Company</a></li>
           <li><a routerLink="/person" routeLinkActive="active">Person</a></li>
+          <li><a routerLink="/address" routeLinkActive="active">Address</a></li>
           <li><a routerLink="/contactus" routeLinkActive="active">Contact Us</a></li>
         </ul>
     </nav>

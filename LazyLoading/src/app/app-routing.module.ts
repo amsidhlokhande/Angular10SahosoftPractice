@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { AddressModule } from './address/address.module';
 import { CompanyModule } from './company/company.module';
 import { ContactusComponent } from './contactus/contactus.component';
 import { CustomPreloadingStrategyService } from './custom-preloading-strategy.service';
@@ -14,7 +15,12 @@ const routes: Routes = [
   },
   {
     path: 'person',
-    loadChildren: () => PersonModule
+    loadChildren: () => PersonModule,
+    data: { preload: true }
+  },
+  {
+    path: 'address',
+    loadChildren: () => AddressModule
   },
   {
     path: 'contactus',

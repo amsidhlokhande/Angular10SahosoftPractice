@@ -9,6 +9,7 @@ import { CompanyListComponent } from './company/company-list/company-list.compon
 import { PersonListComponent } from './person/person-list/person-list.component'; */
 import { ContactusComponent } from './contactus/contactus.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+//import { AddressComponent } from './address/address.component';
 
 @NgModule({
   declarations: [

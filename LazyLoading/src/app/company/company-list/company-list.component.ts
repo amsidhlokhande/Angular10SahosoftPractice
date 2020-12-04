@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   template: `
-    <table>
+    <table border="2">
      <tr>
        <th>Company Code</th>
        <th>Company Name</th>
