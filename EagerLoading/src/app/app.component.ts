@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
           <li><a routerLink="/contactus" routeLinkActive="active">Contact Us</a></li>
         </ul>
     </nav>
+    <hr color="red">
     <div [ngClass]="'partent-container'">
       <router-outlet></router-outlet>
     </div>
