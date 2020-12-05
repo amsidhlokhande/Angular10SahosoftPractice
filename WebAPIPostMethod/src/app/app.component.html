@@ -1,0 +1,39 @@
+<h1 [ngStyle]="{'text-align':'center'}">Http Post Method</h1>
+<div *ngIf="isPersonSaved">
+  <h3 [ngStyle]="{'background-color':'green'}">Person Saved Successfully!</h3>
+</div>
+<div>
+  <form [formGroup]="personForm" (submit)="createPerson()">
+    <table border="1">
+      <tr>
+        <td>Person ID</td>
+        <td><input formControlName="id"></td>
+      </tr>
+      <tr>
+        <td>Person Name</td>
+        <td><input formControlName="name"></td>
+      </tr>
+      <tr>
+        <td>Person Age</td>
+        <td><input formControlName="age"></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center"><button [disabled]="personForm.invalid" type="submit">Submit</button> </td>
+      </tr>
+    </table>
+  </form>
+</div>
+<div>
+  <table border="1">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+    <tr *ngFor="let person of persons|async">
+      <td>{{person.id}}</td>
+      <td>{{person.name}}</td>
+      <td>{{person.age}}</td>
+    </tr>
+  </table>
+</div>
