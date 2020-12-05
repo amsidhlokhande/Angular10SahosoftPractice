@@ -1006,8 +1006,21 @@ Internal Web API :
 	})
 	export class AppModule { }
 
+HttpClient:
+  HttpClient get API Request body structure:
+     
+    get(url:String, options:{
+	   headers?:HttpHeaders|{
+	   [header:string]: string|string[];
+	   };
+	   observe?: HttpObserve;
+	   params?: HttpParams|{ [param:string]: string| string[];};
+	   reportProgress?:boolean;
+	   responseType?:'arrayBuffer'| 'blob' | 'json' | 'text';
+	   withCredentials?boolean;
+	} ={}):Observable<any>
+
 	
-	 
 	  
 	 
 

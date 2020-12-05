@@ -1,0 +1,7 @@
+<h1>{{title}}</h1>
+<ul>
+  <li *ngFor="let employee of employees | async; let i=index">
+    <!-- ID: {{employee.id}} name: {{employee.name}} salary: {{employee.salary}} -->
+    {{employee | json}}
+  </li>
+</ul>
