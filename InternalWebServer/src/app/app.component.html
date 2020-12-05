@@ -1,7 +1,7 @@
 <h1 class="text-danger">{{title}}</h1>
 <br/>
 <ul>
-  <li *ngFor="let book of books; let i=index">
+  <li *ngFor="let book of books | async; let i=index">
     Book Id: {{book.id}} Name: {{book.name}} Author: {{book.author}}
   </li>
 </ul>

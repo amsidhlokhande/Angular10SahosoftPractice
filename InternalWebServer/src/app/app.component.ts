@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Book } from './book';
 import { BookClientService } from './book-client.service';
 
@@ -9,18 +10,18 @@ import { BookClientService } from './book-client.service';
 export class AppComponent implements OnInit {
 
   title = 'Angular Internal Web Server';
- 
-   books: Book[] = [];
+
+  books: Observable<Book[]>;
 
   constructor(private bookService: BookClientService) {
-    this.loadBooks();
-   }
+    this.books = this.loadBooks();
+  }
   ngOnInit(): void {
 
   }
 
-  loadBooks() {
-    this.bookService.getBooks().subscribe(data => this.books = data);
+  loadBooks(): Observable<Book[]> {
+    return this.bookService.getBooks();
   }
 
 
