@@ -973,8 +973,12 @@ Angular Module Loading:
 	    All feature modules must be imported in application module.
     2) Lazy Loading( On demand Loading type) - This will improve the application startup time. Feature module must not be imported in application main module.
 	   To load feature module lazily we need to load it using loadChildren property in route configuration.
-    3) PreLoading	
-			
+    3) PreLoading- Loading modules on demand. Customized PreLoading Strategy is also applied
+       In order to use PreLoading first we need to Lazy loading and then convert to PreLoading. 	
+
+Internal Web API :
+    Angular provides internal dummy web api to test rest apis calls like calling as external Rest API's.
+	npm install angular-in-memory-web-api --save
 	 
 	  
 	 
