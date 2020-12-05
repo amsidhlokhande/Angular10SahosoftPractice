@@ -1,7 +1,13 @@
 <h1 class="text-danger">{{title}}</h1>
 <br/>
-<ul>
+<!-- <ul>
   <li *ngFor="let book of books | async; let i=index">
     Book Id: {{book.id}} Name: {{book.name}} Author: {{book.author}}
   </li>
-</ul>
+</ul> -->
+<div *ngIf="book | async as bk; else loading">
+  Book Id: {{bk.id}} Name: {{bk.name}} Author: {{bk.author}}
+</div>
+<ng-template #loading>
+  <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif">
+</ng-template>

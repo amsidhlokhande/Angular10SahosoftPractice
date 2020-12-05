@@ -11,10 +11,13 @@ export class AppComponent implements OnInit {
 
   title = 'Angular Internal Web Server';
 
-  books: Observable<Book[]>;
+  //books: Observable<Book[]>;
+  book:Observable<Book>;
+
 
   constructor(private bookService: BookClientService) {
-    this.books = this.loadBooks();
+    //this.books = this.loadBooks();
+    this.book = this.getBookByBookId(5999);
   }
   ngOnInit(): void {
 
@@ -24,6 +27,9 @@ export class AppComponent implements OnInit {
     return this.bookService.getBooks();
   }
 
+  getBookByBookId(bookId:number):Observable<Book>{
+    return this.bookService.getBookById(bookId);
+  }
 
 
 }
