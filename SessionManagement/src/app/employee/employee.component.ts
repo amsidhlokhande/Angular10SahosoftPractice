@@ -13,6 +13,7 @@ export class EmployeeComponent implements OnInit {
     console.log('Employee Web Storage Details:')
     console.log(localStorage.getItem('myLocalstorage'));
     console.log(sessionStorage.getItem('mySessionStorage'));
+    console.log(localStorage.getItem('userInfo'));
   }
 
 }
