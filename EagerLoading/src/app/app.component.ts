@@ -11,10 +11,11 @@ import { Component } from '@angular/core';
         </ul>
     </nav>
     <hr color="red">
-    <div [ngClass]="'partent-container'">
+    <div [ngClass]="'parent-container'">
       <router-outlet></router-outlet>
     </div>
-  `
+  `,
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'EagerLoading';
