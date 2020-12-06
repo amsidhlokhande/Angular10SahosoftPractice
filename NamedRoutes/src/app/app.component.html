@@ -1,0 +1,9 @@
+<nav [ngClass]="'parent-menu'">
+  <ul>
+    <li><a routerLink="./book'" routerLinkActive="active">Book</a></li>
+    <li><a [routerLink]="[{outlets:{bookList:['bookdetails']}}]" routerLinkActive="active">BookDetails</a></li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
+<router-outlet name="bookList"></router-outlet>
