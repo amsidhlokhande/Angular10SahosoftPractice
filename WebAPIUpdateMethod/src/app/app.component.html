@@ -1,0 +1,42 @@
+<h3>{{title}}</h3>
+<div *ngIf="isStudentSaved">
+  <h3>Student Saved Successfully</h3>
+</div>
+<div>
+  <form [formGroup]="studentForm" (ngSubmit)="saveStudent()">
+    <table border="1">
+      <tr>
+        <td>Roll Number</td>
+        <td><input formControlName="id"> </td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td><input formControlName="name"> </td>
+      </tr>
+      <tr>
+        <td>Standard</td>
+        <td><input formControlName="standard"> </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center"><button [disabled]="studentForm.invalid" type="submit">Submit</button></td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+<div>
+  <table border="1">
+    <tr>
+      <th>Roll Number</th>
+      <th>Name</th>
+      <th>Standard</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let student of students|async">
+      <td>{{student.id}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.standard}}</td>
+      <td><button (click)="updateStudent(student.id)">Edit</button></td>
+    </tr>
+  </table>
+</div>
