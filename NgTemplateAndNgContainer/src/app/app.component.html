@@ -1,0 +1,42 @@
+<h1 [ngStyle]="{'text-align': 'center'}">NG-Template Example</h1>
+<h3>Example-1:</h3>
+<ng-template>
+  Hello I am not getting displayed because it is not used with any structural directive like ngIf, ngFor and ngSwitch
+</ng-template>
+
+<h3>Example-2:</h3>
+<ng-template ngIf="display">
+  This ng-template is displayed as it is used with structural directive ngIf
+</ng-template>
+
+<h3>Example-3:</h3>
+<div *ngIf="flag; else elseBlock">
+  This wont be displayed as flag value is false
+</div>
+<ng-template #elseBlock>
+  ng-template with else block
+</ng-template>
+
+<h3>Example-4 :</h3>
+<ng-template ngFor let-book [ngForOf]="books" let-i="index">
+  {{book.id}} {{book.name}}<br>
+</ng-template>
+
+
+<hr color="red" />
+
+<h1 [ngStyle]="{'text-align': 'center'}">NG-Container Example</h1>
+<h3>Example-1:</h3>
+<ng-container>
+  This will be displayed as ng-container will display content with or without structural directive.
+</ng-container>
+
+<h3>Example-2:</h3>
+
+<ul>
+  <ng-container *ngIf="display">
+    <li *ngFor="let book of books">
+      {{book.id}} {{book.name}}<br>
+    </li>
+  </ng-container>
+</ul>

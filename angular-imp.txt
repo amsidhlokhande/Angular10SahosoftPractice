@@ -1021,7 +1021,55 @@ HttpClient:
 	} ={}):Observable<any>
 
 	
-	  
+NG-Template 
+    ng-template with if condition
+	  1)  <ng-template ngIf="display">
+		  Display if display is true
+		</ng-template>
+     
+	  2)
+        <div *ngIf="display; else elseBlock">
+		    <h1>Display if true</h1>
+		</div>
+		<ng-template #elseBlock>
+		  <h1>Display if display is not true</h1>
+		</ng-template>
+		
+		
+	NgTemplate with for loop
+      Normal for loop
+         <div *ngFor="let book of books; let i=index">
+		    {{book.id}}  {{book.name}}
+		 </div>	  
+		 
+	  ngtemplate with for loop. For loop syntax get changed.
+      
+         <ng-template ngFor let-book [ngForOf]="books" let-i="index" >
+		    {{i}} {{book.id}}  {{book.name}}
+		 </ng-template>	  
+
+NG-Container:		 
+    ng-container is similar to ng-template only the difference is content displayed with or without structural directives like ngIf, ngFor, ngSwitch etc.
+	Its is very useful because with can use this where we cant use extra div. We can use two structural directive on one html element so we use ng-container
+	for applying more than one directive
+    For Example:
+    In the below table we can add any html element in between table and tr tag. So we added ng-container and checked the condition.	
+    <table>
+	   <ng-container *ngIf=""display>
+	   <tr *ngFor="let book as books">
+	     <td>{{book.id}}</td>
+	   </tr>
+	   </ng-container>
+    </table>  	
+	
+	
+JQuery with Angular
+    In order to use jQuery in angular we need to first install jQuery
+     npm install jquery --save
+    After that add the jquery-min.js inside script section of angular.json file
+	
+	 
+	 
 	 
 
 
