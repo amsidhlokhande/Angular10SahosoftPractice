@@ -8,7 +8,6 @@ export class StudentData implements InMemoryDbService {
             { id: 1, name: 'Amsidh', standard: 'B.E' },
             { id: 2, name: 'Anjali', standard: 'B.Ed' },
         ];
-       debugger;
         return { students: studentData };
     }
 

@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   isStudentSaved: boolean = false;
   studentForm!: FormGroup;
   students!: Observable<Student[]>;
-  updateStudentId:string = '';
+  updateStudentId: string = '';
   student!: Student;
   constructor(private formBuilder: FormBuilder, private studentService: StudentService) { }
   ngOnInit(): void {
@@ -51,7 +51,6 @@ export class AppComponent implements OnInit {
 
       });
     } else {
-      debugger;
       this.studentService.updateStudent(student).subscribe(rollNumber => {
         this.isStudentSaved = true;
         this.studentForm.reset();
@@ -63,4 +62,13 @@ export class AppComponent implements OnInit {
   }
 
 
+  deleteStudent(id: number) {
+    this.studentService.deleteStudent(id).subscribe(student => {
+      this.isStudentSaved = false;
+      this.studentForm.reset();
+      this.students = this.studentService.getStudents();
+      this.updateStudentId = '';
+
+    });
+  }
 }
