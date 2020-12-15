@@ -10,4 +10,7 @@ export class UserService {
   isAdminRight(): boolean {
     return true;
   }
+  isChildRight(): boolean {
+    return false;
+  }
 }

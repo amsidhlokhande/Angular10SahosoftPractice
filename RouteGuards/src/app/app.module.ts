@@ -9,13 +9,17 @@ import { ActivateGuard } from './activate.guard';
 import { HomeComponent } from './home/home.component';
 import { MerchantComponent } from './merchant/merchant.component';
 import { DeactiveGuard } from './deactive.guard';
+import { CustomerComponent } from './customer/customer.component';
+import { AddcustomerComponent } from './addcustomer/addcustomer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
     HomeComponent,
-    MerchantComponent
+    MerchantComponent,
+    CustomerComponent,
+    AddcustomerComponent
   ],
   imports: [
     BrowserModule,
