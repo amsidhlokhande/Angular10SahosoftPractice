@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ActivateGuard } from './activate.guard';
 import { AdminComponent } from './admin/admin.component';
+import { DeactiveGuard } from './deactive.guard';
 import { HomeComponent } from './home/home.component';
+import { MerchantComponent } from './merchant/merchant.component';
 
 const routes: Routes = [
   {
@@ -17,6 +19,11 @@ const routes: Routes = [
     path: 'admin',
     component: AdminComponent,
     canActivate: [ActivateGuard]
+  },
+  {
+    path: 'merchant',
+    component: MerchantComponent,
+    canDeactivate: [DeactiveGuard]
   }
 ];
 

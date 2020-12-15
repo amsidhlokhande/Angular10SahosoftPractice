@@ -7,18 +7,21 @@ import { AdminComponent } from './admin/admin.component';
 import { UserService } from './user.service';
 import { ActivateGuard } from './activate.guard';
 import { HomeComponent } from './home/home.component';
+import { MerchantComponent } from './merchant/merchant.component';
+import { DeactiveGuard } from './deactive.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
-    HomeComponent
+    HomeComponent,
+    MerchantComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [UserService, ActivateGuard],
+  providers: [UserService, ActivateGuard, DeactiveGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
