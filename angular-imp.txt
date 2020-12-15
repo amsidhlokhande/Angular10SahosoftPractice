@@ -1067,8 +1067,11 @@ JQuery with Angular
     In order to use jQuery in angular we need to first install jQuery
      npm install jquery --save
     After that add the jquery-min.js inside script section of angular.json file
-	
-	 
+	"scripts": [
+              "../node_modules/jquery/dist/jquery.min.js"
+            ]
+
+			
 	 
 	 
 

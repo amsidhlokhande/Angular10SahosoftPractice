@@ -1,0 +1,11 @@
+<nav ngClass="'parent-menu'">
+  <ul>
+    <li>
+      <a [routerLink]="[ 'home' ]" routerLinkActive="active">Home</a> &nbsp; 
+      <a [routerLink]="[ 'admin' ]" routerLinkActive="active">Admin</a>
+    </li>
+  </ul>
+</nav>
+<div>
+  <router-outlet></router-outlet>
+</div>
