@@ -1,0 +1,7 @@
+<p>home works!</p>
+
+<ul *ngFor="let book of books | async">
+    <li>
+        {{book.id}} &nbsp; {{book.title}} &nbsp; <a [routerLink]="[ '/bookdetail', book.id ]">Book Details</a>
+    </li>
+</ul>
