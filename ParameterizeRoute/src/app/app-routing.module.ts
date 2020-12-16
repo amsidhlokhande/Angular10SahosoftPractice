@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BookdetailResolverService } from './bookdetail-resolver.service';
 import { HomeComponent } from './home/home.component';
 import { ViewDetailsComponent } from './view-details/view-details.component';
 
@@ -11,7 +12,10 @@ const routes: Routes = [
   },
   {
     path: 'bookdetail/:id',
-    component: ViewDetailsComponent
+    component: ViewDetailsComponent,
+    resolve: {
+      bookdetail: BookdetailResolverService
+    }
   },
   {
     path: '',
